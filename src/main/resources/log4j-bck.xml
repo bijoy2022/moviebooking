@@ -43,8 +43,8 @@
  
     <Root level="info">
     <AppenderRef ref="fileLog" />
-      <AppenderRef ref="Console" />
-      <AppenderRef ref="appLog" />
+      <!-- <AppenderRef ref="Console" />
+      <AppenderRef ref="appLog" /> -->
     </Root>
   </Loggers>
 </Configuration>
