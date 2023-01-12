@@ -5,6 +5,8 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.Api;
+@Api(value="RestController")
 @RestController
 public class TestController {
 	

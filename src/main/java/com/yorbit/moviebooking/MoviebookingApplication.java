@@ -2,14 +2,16 @@ package com.yorbit.moviebooking;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
-import io.swagger.v3.oas.annotations.OpenAPIDefinition;
-import io.swagger.v3.oas.annotations.info.Info;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
-//@OpenAPIDefinition(info = @Info(title = "Movie Booking", version = "2.0", description = "Movie Booking"))
-//@EnableSwagger2
-@OpenAPIDefinition(info = @Info(title = "Employees API", version = "2.0", description = "Employees Information"))
+@EnableSwagger2
 public class MoviebookingApplication {
 
 	public static void main(String[] args) {
@@ -22,14 +24,16 @@ public class MoviebookingApplication {
 	 * .apis(RequestHandlerSelectors.basePackage(
 	 * "com.yorbit.moviebooking.controller")).build(); }
 	 */
+	@Bean
+    public Docket productApi() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .select()
+                .apis(RequestHandlerSelectors.any())
+                .paths(PathSelectors.any())
+                .build();
+    }
 	 
-		/*
-		 * @Bean public Docket productApi() { return new
-		 * Docket(DocumentationType.SWAGGER_2) .select()
-		 * .apis(RequestHandlerSelectors.basePackage(
-		 * "com.yorbit.moviebooking.controller")) .paths(regex("/product.*")) .build();
-		 * 
-		 * }
-		 */
+	 
+	
 
 }
