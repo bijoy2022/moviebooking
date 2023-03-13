@@ -11,7 +11,7 @@ public class ScreenBookingControllerImpl implements ScreenBookingController {
 	@Override
 	public Screen getScreen() {
 		LOGGER.info("ScreenBookingControllerImpl check method started");
-		return null;
+		return new Screen("Test Screen");
 	}
 
 }
